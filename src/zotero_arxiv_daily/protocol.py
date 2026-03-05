@@ -26,11 +26,14 @@ class Paper:
         prompt = f"Given the following information of a paper, generate a one-sentence TLDR summary in {lang}. Use 'the author' or 'the authors' as the subject of the sentence (do not use actual author names). Do not include the word TLDR in your response.\n\n"
         if self.title:
             prompt += f"Title:\n {self.title}\n\n"
+
+        if self.abstract:
+            prompt += f"Abstract: {self.abstract}\n\n"
+
         if self.full_text:
             prompt += f"Preview of main content:\n {self.full_text}\n\n"
-        elif self.abstract:
-            prompt += f"Abstract: {self.abstract}\n\n"
-        else:
+
+        if not self.full_text and not self.abstract:
             logger.warning(f"Neither full text nor abstract is provided for {self.url}")
             return "Failed to generate TLDR. Neither full text nor abstract is provided"
         
