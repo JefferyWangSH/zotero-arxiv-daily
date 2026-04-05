@@ -91,7 +91,7 @@ def get_stars(score:float):
     full_star = '<span class="full-star">⭐</span>'
     half_star = '<span class="half-star">⭐</span>'
     low = 2
-    high = 5
+    high = 4.5
     if score <= low:
         return ''
     elif score >= high:

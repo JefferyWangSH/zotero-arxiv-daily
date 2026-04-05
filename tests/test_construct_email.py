@@ -48,17 +48,17 @@ def test_render_email_no_affiliations():
 
 
 def test_get_stars_low_score():
-    assert get_stars(5.0) == ""
-    assert get_stars(6.0) == ""
+    assert get_stars(1.5) == ""
+    assert get_stars(2.0) == ""
 
 
 def test_get_stars_high_score():
-    stars = get_stars(8.0)
+    stars = get_stars(4.5)
     assert stars.count("full-star") == 5
 
 
 def test_get_stars_mid_score():
-    stars = get_stars(7.0)
+    stars = get_stars(3.0)
     assert "star" in stars
     assert stars.count("full-star") + stars.count("half-star") > 0
 
